@@ -45,6 +45,11 @@ def scrape_pages():
         remaining = len([p for p in pages if not os.path.exists(os.path.join(DATA_DIR, f"page_{p}.json"))])
         logging.info(f"Scraping Page {page} | Remaining: {remaining} | Progress: {((total_pages - remaining)/total_pages)*100:.2f}%")
         
+        # CITY CODES 
+        # Mumabai: 4320
+        # Thane: 4442
+        # Beyond Thane: 4240
+        # Navi Mumbai: 4341
         params = {'editSearch': 'Y', 'category': 'S', 'city': '4341', 'page': page}
         
         # 2. Fail-safe retry logic (up to 3 times per page)
